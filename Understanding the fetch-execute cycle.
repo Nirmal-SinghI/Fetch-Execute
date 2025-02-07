@@ -1,0 +1,22 @@
+The fetch decode execute cycle is the basic foundational unit of a computer, almost of all computers.
+At some instance we could basically take these machines as some overgrown calculators who calculate all the 
+instructions provided by the user and put it into play. 
+
+Various compoents come into play to make these things work. 
+
++----------------+       +-------+       +---------------+
+|                |       |       |       |               |
+|  Memory (RAM)  <------->  Bus  <------->     CPU       |
+|                |       |       |       |               |
++----------------+       +-------+       +-------+-------+
+                                               |  |  |
+                                               |  |  |
+                  +-----------+          +------+  |  +------+
+                  | Program   |          | ALU     |  | IR   |
+                  | Counter   |          | (ACC)   |  |      |
+                  +-----------+          +---------+  +------+
+
+The above given diagram is a basic view of the large bulky calculations that make the computer 
+function as it should.
+
+
