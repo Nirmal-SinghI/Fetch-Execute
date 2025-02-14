@@ -1,3 +1,16 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
 The fetch decode execute cycle is the basic foundational unit of a computer, almost of all computers.
 At some instance we could basically take these machines as some overgrown calculators who calculate all the 
 instructions provided by the user and put it into play. 
@@ -12,11 +25,58 @@ Various compoents come into play to make these things work.
                                                |  |  |
                                                |  |  |
                   +-----------+          +------+  |  +------+
-                  | Program   |          | ALU     |  | IR   |
+                  | Program  |           | ALU     |  | IR   |<---Instruction Register.
                   | Counter   |          | (ACC)   |  |      |
                   +-----------+          +---------+  +------+
+                                             |
+                                         Arithmetic and logic
+                                         Unit. (ACC= Accumulator sitting inside of it.)
 
 The above given diagram is a basic view of the large bulky calculations that make the computer 
 function as it should.
+
+
+Fetch decode execute cycle
+
+Fetch-decode-execute cycle is the basic and most fundamental process of a computer, through which the Central Processing Unit(CPU) 
+retrieves and executes the instructions from the memory. As we dive deep into it we try to understand the several sequential steps involved,
+repeated programs that run inside of the CPU.
+
+1. Fetch Phase
+
+This process involves where CPu receives instructions from the memory.
+* Program Counter (PC): It holds the memory address of the instructions to be fetched.
+* Memory Address Register (MAR): Address of a specific memory address from the PC is copied here.
+* Memory Data Register(MDR): Now the instruction at the memory address (stored inside MAR) is copied here.
+* Increment PC: The PC is updated and put back to the next instruction. Recursively defined and working in a loop is 
+  one of the most basic principles of Computer Science.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+2. Decode Phase:
+The decode phase is more commonly a branch under the execute phase, but to understand it more generally we should study it. 
+This phase involves interpreting the fetched instructions.
+
+* Control Unit(CU): It decodes the instruction to determine the operation, if it is ADD, LOAD, STORE, etc. and identifies the operand (memory addresses)
+* The CU accesses the MDR to identify instructions, operation code and the operand.
+Example:
+Decoding `ADD R1, R2` means the CPU recognizes it needs to add the values in registers R1 and R2
+
+
+—------------------------------------------------------------------------------------------------------------------------
+
+
+3. Execute Phase:
+
+Now for the final step, the CPU performs the operation provided by the instruction.
+* Arithmetic Logic Unit (ALU): Most important component that conducts the mathematical/logical operation. 
+* Memory Access: Instructions such as ‘LOAD’ or ‘STORE’ , data is read from the memory.
+  At the end, the results are stored inside of the accumulator or ACC.  
+
+Example:  
+For `ADD R1, R2`, the ALU adds the values in R1 and R2, then stores the result in a register (e.g., R1).
+
 
 
