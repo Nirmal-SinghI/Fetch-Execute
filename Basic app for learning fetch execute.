@@ -1,0 +1,123 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void display_menu();
+void fetch_stage();
+void decode_stage();
+void execute_stage();
+void full_cycle_example();
+void register_explanation();
+void overview();
+
+int main() {
+    int choice;
+    
+    printf("Welcome to Fetch-Execute Cycle Teaching Tool\n");
+    printf("--------------------------------------------\n\n");
+    
+    do {
+        display_menu();
+        scanf("%d", &choice);
+        
+        switch(choice) {
+            case 1:
+                overview();
+                break;
+            case 2:
+                fetch_stage();
+                break;
+            case 3:
+                decode_stage();
+                break;
+            case 4:
+                execute_stage();
+                break;
+            case 5:
+                full_cycle_example();
+                break;
+            case 6:
+                register_explanation();
+                break;
+            case 7:
+                printf("Exiting program...\n");
+                break;
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    } while(choice != 7);
+    
+    return 0;
+}
+
+void display_menu() {
+    printf("\nMain Menu:\n");
+    printf("1. Overview of Fetch-Execute Cycle\n");
+    printf("2. Detailed Fetch Stage\n");
+    printf("3. Detailed Decode Stage\n");
+    printf("4. Detailed Execute Stage\n");
+    printf("5. Full Cycle Example\n");
+    printf("6. CPU Registers Explanation\n");
+    printf("7. Exit\n");
+    printf("Enter your choice: ");
+}
+
+void overview() {
+    printf("\n*** Overview of Fetch-Execute Cycle ***\n");
+    printf("The fetch-execute cycle is the fundamental process of a computer's CPU.\n");
+    printf("It consists of three main stages:\n");
+    printf("1. FETCH: Get the next instruction from memory\n");
+    printf("2. DECODE: Understand what the instruction means\n");
+    printf("3. EXECUTE: Perform the required operation\n");
+    printf("This cycle repeats continuously while the computer is powered on.\n");
+}
+
+void fetch_stage() {
+    printf("\n*** Fetch Stage Details ***\n");
+    printf("1. The Program Counter (PC) holds the address of the next instruction\n");
+    printf("2. The address from PC is copied to Memory Address Register (MAR)\n");
+    printf("3. The memory controller fetches the instruction from that address\n");
+    printf("4. The instruction is stored in Memory Data Register (MDR)\n");
+    printf("5. The instruction is copied from MDR to Current Instruction Register (CIR)\n");
+    printf("6. The PC is incremented to point to the next instruction\n");
+}
+
+void decode_stage() {
+    printf("\n*** Decode Stage Details ***\n");
+    printf("1. The instruction in CIR is split into opcode and operands\n");
+    printf("2. The Control Unit interprets the opcode (operation code)\n");
+    printf("3. The CPU determines what operation needs to be performed\n");
+    printf("4. The CPU identifies the required resources (registers/memory addresses)\n");
+    printf("5. The CPU prepares for execution by setting up internal pathways\n");
+}
+
+void execute_stage() {
+    printf("\n*** Execute Stage Details ***\n");
+    printf("1. The Control Unit sends signals to relevant components\n");
+    printf("2. The ALU (Arithmetic Logic Unit) may perform calculations\n");
+    printf("3. Data might be moved between registers and memory\n");
+    printf("4. Results are stored in appropriate locations\n");
+    printf("5. Status flags may be updated (overflow, zero, negative etc.)\n");
+    printf("6. The cycle then returns to the fetch stage\n");
+}
+
+void full_cycle_example() {
+    printf("\n*** Full Cycle Example ***\n");
+    printf("Let's follow a simple ADD instruction:\n");
+    printf("1. [FETCH] PC=0x100: Load instruction from address 0x100\n");
+    printf("   - MAR=0x100, MDR=LOAD instruction, PC increments to 0x104\n");
+    printf("2. [DECODE] Instruction is split into:\n");
+    printf("   - Opcode: ADD, Operands: R1, R2, R3\n");
+    printf("3. [EXECUTE] ALU adds contents of R2 and R3\n");
+    printf("   - Result stored in R1\n");
+    printf("4. Cycle repeats with updated PC value\n");
+}
+
+void register_explanation() {
+    printf("\n*** Key CPU Registers ***\n");
+    printf("PC (Program Counter): Stores address of next instruction\n");
+    printf("MAR (Memory Address Register): Holds memory address for data transfer\n");
+    printf("MDR (Memory Data Register): Holds data being transferred to/from memory\n");
+    printf("CIR (Current Instruction Register): Holds the current instruction\n");
+    printf("ACC (Accumulator): Temporary storage for arithmetic operations\n");
+    printf("Status Register: Contains flags indicating processor state\n");
+}
